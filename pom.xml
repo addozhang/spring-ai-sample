@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>3.3.3</version>
+        <relativePath/> <!-- lookup parent from repository -->
+    </parent>
+    <groupId>com.atbug</groupId>
+    <artifactId>spring-ai-sample</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <packaging>pom</packaging>
+    <modules>
+        <module>chat-azure-openai</module>
+        <module>chat-ollama</module>
+        <module>adk-sample</module>
+    </modules>
+
+    <properties>
+        <maven.compiler.source>17</maven.compiler.source>
+        <maven.compiler.target>17</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <spring-ai.version>1.1.0-M4</spring-ai.version>
+        <adk.version>0.3.1-SNAPSHOT</adk.version>
+        <spring-cloud-azure-starter.version>6.0.0</spring-cloud-azure-starter.version>
+    </properties>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.springframework.ai</groupId>
+                <artifactId>spring-ai-bom</artifactId>
+                <version>${spring-ai.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <!-- ADK Dependencies -->
+            <dependency>
+                <groupId>com.google.adk</groupId>
+                <artifactId>google-adk</artifactId>
+                <version>${adk.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.google.adk</groupId>
+                <artifactId>google-adk-spring-ai</artifactId>
+                <version>${adk.version}</version>
+            </dependency>
+            <!-- Dev UI -->
+            <dependency>
+                <groupId>com.google.adk</groupId>
+                <artifactId>google-adk-dev</artifactId>
+                <version>${adk.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.azure.spring</groupId>
+                <artifactId>spring-cloud-azure-starter</artifactId>
+                <version>${spring-cloud-azure-starter.version}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <!--<repositories>
+        <repository>
+            <id>spring-milestones</id>
+            <name>Spring Milestones</name>
+            <url>https://repo.spring.io/milestone</url>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </repository>
+        <repository>
+            <id>spring-snapshots</id>
+            <name>Spring Snapshots</name>
+            <url>https://repo.spring.io/snapshot</url>
+            <releases>
+                <enabled>false</enabled>
+            </releases>
+        </repository>
+    </repositories>-->
+
+</project>
